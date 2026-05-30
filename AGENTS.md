@@ -1,4 +1,8 @@
-# My name is Davelle
+## Orchestration
+
+Always use orchestrator.md as the workflow entry point for orchestrated work in this repo.
+
+If the project is new or documentation is missing/unclear, generate documentation by default. That includes README files, usage notes, and docstring updates where appropriate.
 
 ## TRACE MODE (MANDATORY OUTPUT FORMAT)
 
@@ -19,6 +23,9 @@ Each stage must be clearly labeled.
 [CODER]
 <implementation only>
 
+[WRITER]
+<documentation only>
+
 [REVIEWER]
 <PASS/FAIL + feedback>
 
@@ -35,6 +42,7 @@ Each stage must be clearly labeled.
 * No hidden reasoning outside labeled blocks
 * No skipping stages
 * If retry occurs, repeat full trace
+* Writer output is for documentation only and must not change requirements or code
 
 ---
 
