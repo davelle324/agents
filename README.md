@@ -234,6 +234,42 @@ A task succeeds only when ALL of the following are true:
 
 If ANY agent fails, the entire pipeline retries.
 
+## Skills
+
+Skills are reusable Claude Code capabilities invoked with `/skill-name`. They live in `skills/<skill-name>/SKILL.md` and follow the Claude Code skill format (YAML frontmatter + markdown instructions).
+
+### Available Skills
+
+| Skill | File | Description |
+|-------|------|-------------|
+| `handoff` | `skills/handoff/SKILL.md` | Create or update `handoff.md` with current session context for continuity between sessions |
+
+### Using Skills
+
+Invoke a skill by saying its trigger phrase or using `/handoff` (if installed as a plugin):
+
+```
+handoff
+```
+or
+```
+create a handoff
+```
+
+To install skills as a Claude Code plugin, copy the `skills/` directory into a plugin folder under `~/.claude/plugins/`.
+
+### Skill Format
+
+Each skill is a directory with a `SKILL.md` file:
+
+```
+skills/
+└── skill-name/
+    ├── SKILL.md          # Required: YAML frontmatter + instructions
+    ├── references/       # Optional: reference docs
+    └── scripts/          # Optional: helper scripts
+```
+
 ## File Structure
 
 ```
@@ -249,6 +285,9 @@ If ANY agent fails, the entire pipeline retries.
 │   ├── writer.md                # Documentation
 │   ├── tester.md                # Testing and validation
 │   └── security.md              # Security scanning
+└── skills/
+    └── handoff/
+        └── SKILL.md             # Handoff document skill
 ```
 
 ## Configuration

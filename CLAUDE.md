@@ -11,7 +11,7 @@ This project uses a sequential multi-agent orchestration system with mandatory t
 When the user requests a coding task, you MUST evaluate complexity:
 
 ### NON-TRIVIAL TASKS (Use Orchestration - REQUIRED)
-Use the orchestration entry point in `agents/orchestrator.md` for:
+Use the orchestration entry point in `$HOME/.claude/agents/orchestrator.md` for:
 - Adding new features or endpoints
 - Implementing new functionality
 - Refactoring code
@@ -35,7 +35,7 @@ You may skip orchestration ONLY for:
 
 When orchestration is required:
 1. STOP - Do NOT implement directly
-2. Use the orchestration entry point in `agents/orchestrator.md`
+2. Use the orchestration entry point in `$HOME/.claude/agents/orchestrator.md`
 3. Pass the complete task description
 4. Wait for the full trace output
 5. The orchestrator will handle all implementation
@@ -47,14 +47,14 @@ Use `agents/orchestrator.md` to process this task: Add functionality to import e
 
 ## Orchestration Entry Point
 
-All non-trivial tasks MUST go through `agents/orchestrator.md` as the workflow entry point.
+All non-trivial tasks MUST go through `$HOME/.claude/agents/orchestrator.md` as the workflow entry point.
 
 ## Agent Architecture
 
 The system consists of 6 specialized agents working sequentially:
 
-1. **Manager** (`agents/manager.md`) - Task routing and orchestration
-2. **Researcher** (`agents/researcher.md`) - Solution research and analysis
+1. **Manager** (`$HOME/.claude/agents/manager.md`) - Task routing and orchestration
+2. **Researcher** (`$HOME/.claude/agents/researcher.md`) - Solution research and analysis
 3. **Coder** (`agents/coder.md`) - Code implementation and linting
 4. **Writer** (`agents/writer.md`) - Documentation generation
 5. **Tester** (`agents/tester.md`) - Code testing and validation

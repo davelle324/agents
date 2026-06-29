@@ -11,7 +11,7 @@ This project uses a sequential multi-agent orchestration system with mandatory t
 When the user requests a coding task, you MUST evaluate complexity:
 
 ### NON-TRIVIAL TASKS (Use Orchestration - REQUIRED)
-Use the orchestration entry point in `agents/orchestrator.md` for:
+Use the orchestration entry point in `$HOME/.codex/agents/orchestrator.md` for:
 - Adding new features or endpoints
 - Implementing new functionality
 - Refactoring code
@@ -35,7 +35,7 @@ You may skip orchestration ONLY for:
 
 When orchestration is required:
 1. STOP - Do NOT implement directly
-2. Use the orchestration entry point in `agents/orchestrator.md`
+2. Use the orchestration entry point in `$HOME/.codex/agents/orchestrator.md`
 3. Pass the complete task description
 4. Wait for the full trace output
 5. The orchestrator will handle all implementation
@@ -53,12 +53,22 @@ All non-trivial tasks MUST go through `agents/orchestrator.md` as the workflow e
 
 The system consists of 6 specialized agents working sequentially:
 
-1. **Manager** (`agents/manager.md`) - Task routing and orchestration
-2. **Researcher** (`agents/researcher.md`) - Solution research and analysis
-3. **Coder** (`agents/coder.md`) - Code implementation and linting
-4. **Writer** (`agents/writer.md`) - Documentation generation
-5. **Tester** (`agents/tester.md`) - Code testing and validation
-6. **Security** (`agents/security.md`) - Security vulnerability scanning
+1. **Manager** (`$HOME/.codex/agents/manager.md`) - Task routing and orchestration
+2. **Researcher** (`$HOME/.codex/agents/researcher.md`) - Solution research and analysis
+3. **Coder** (`$HOME/.codex/agents/coder.md`) - Code implementation and linting
+4. **Writer** (`$HOME/.codex/agents/writer.md`) - Documentation generation
+5. **Tester** (`$HOME/.codex/agents/tester.md`) - Code testing and validation
+6. **Security** (`$HOME/.codex/agents/security.md`) - Security vulnerability scanning
+
+## Skills
+
+Reusable capabilities that complement the agent pipeline. Skills are invoked by name and handle cross-cutting concerns outside the main orchestration flow.
+
+| Skill | File | Trigger |
+|-------|------|---------|
+| `handoff` | `skills/handoff/SKILL.md` | "handoff", "create a handoff", "wrap up", "end of session" |
+
+Skills live in `skills/<skill-name>/SKILL.md` and follow the Claude Code SKILL.md format.
 
 ## Workflow
 
